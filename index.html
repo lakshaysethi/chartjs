@@ -12,30 +12,28 @@
 
 
         <script>
+      
+            class Actitvity{
+                constructor(lable,dataarray,color){
+                    this.lable = lable;
+                    this.data = dataarray;
+                    this.borderColor = [color];
+                    this.borderWidth = 1
+                }
+
+            }
+
+            let xaxis = ['day 1','day 2', 'day 3']
+            let dataarray = [new Actitvity('uber',[1,0.5,0.1],'red'),
+                            new Actitvity('programming',[1,2,5],'green')]
+            
+
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['18 oct', '19 oct', '20 oct', 'food', 'family', 'work'],// this is the x axis
-                    datasets: [ {
-                        label: 'uber',
-                        data: [12, 19, 3, 5, 2, 3],
-                        
-                        borderColor: [
-                            'green',
-                            
-                        ],
-                        borderWidth: 1
-                    },{
-                        label: 'programming',
-                        data: [3, 4, 5, 4, 6, 1],
-                        
-                        borderColor: [
-                            'red',
-                            
-                        ],
-                        borderWidth: 1
-                    }]
+                    labels: xaxis,// this is the x axis
+                    datasets: dataarray,// needs to be array with objects
                 },
                 options: {
                     scales: {
